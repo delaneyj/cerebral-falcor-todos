@@ -2,6 +2,7 @@ import React from 'react';
 import {Decorator as Cerebral} from 'cerebral-react';
 
 @Cerebral({
+  greetings: ['greetings'],
   todos: ['todos']
 })
 export default class App extends React.Component {
@@ -22,6 +23,7 @@ export default class App extends React.Component {
 
       return (
         <div>
+          <h1>{this.props.greetings}</h1>
           <input onKeyDown={this.textEntered.bind(this)} />
           <ul>{todos}</ul>
         </div>
@@ -29,6 +31,7 @@ export default class App extends React.Component {
     } else {
       return (
         <div>
+          <h5>{this.props.greetings}</h5>
           <input />
           <p>Loading</p>
         </div>

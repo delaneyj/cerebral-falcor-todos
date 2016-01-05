@@ -4,7 +4,7 @@ import {Container} from 'cerebral-react';
 import {controller, model} from './controller';
 import App from './app';
 import FalcorModule from 'cerebral-falcor-module';
-import {getTodos, getTodosLength, createTodo} from './actions';
+import {getTodos, getTodosLength, createTodo,getGreeting} from './actions';
 
 controller.register({
   falcor: FalcorModule({
@@ -15,7 +15,8 @@ controller.register({
 
 controller.signal('appMounted', [
   [getTodosLength],
-  [getTodos]
+  [getTodos],
+  [getGreeting]
 ]);
 
 controller.signal('todoTextEntered', [

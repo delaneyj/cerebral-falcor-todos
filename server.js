@@ -110,6 +110,18 @@ if (isDeveloping) {
             return buildPathSetResults(resource, index, attrs);
           }));
         }
+      },
+      {
+        route: "greetings",
+        get: function (pathSet) {
+          debugger;
+          const response = [
+            //{path:['greetings'],value:{$type:'atom',value:`Hello @bfitch.`}} //this totally works
+            {path: ['greetings'], value: {$type: 'error', value: 'Something bad happened'}}
+          ];
+          console.log(JSON.stringify(response, null, 2));
+          return response;
+        }
       }
     ]);
   }));

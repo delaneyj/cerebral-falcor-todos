@@ -18,4 +18,16 @@ const createTodo = ({input, output, services}) => {
     catch(response => output.error);
 }
 
-export {getTodos, getTodosLength, createTodo};
+const getGreeting = ({output, services}) => {
+  services.falcor.get(['greetings']).
+  then(response => {
+    debugger; //no problems if there is a success
+    output(response.json)
+  }).
+  catch(response => {
+    debugger; //if there was an error gives back in raw jsongraph form
+    output(response); //this will cause the thrown error described in the bug
+  });
+}
+
+export {getTodos, getTodosLength, createTodo, getGreeting};
